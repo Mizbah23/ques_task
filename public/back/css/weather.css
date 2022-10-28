@@ -1,0 +1,967 @@
+@font-face {
+	font-family: meteoblue;
+	src: url(/website/fonts/meteoblue_pictofont_rev8.woff#iefix) format("woff"), url(/website/fonts/meteoblue_pictofont_rev8.ttf) format("truetype");
+	font-weight: 400;
+	font-style: normal
+}
+
+.glyph {
+	direction: ltr
+}
+
+.glyph:after,
+.glyph:before {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: meteoblue;
+	display: inline-block;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1;
+	position: relative;
+	vertical-align: baseline;
+	text-decoration: none
+}
+
+.glyph:after:hover,
+.glyph:before:hover {
+	text-decoration: none
+}
+
+.glyph.time:before {
+	content: "\00e0e0"
+}
+
+.glyph.date:before {
+	content: "\00e0e7"
+}
+
+.glyph.temperature:before {
+	content: "\00e010"
+}
+
+.glyph.windchill:before {
+	content: "\00e011"
+}
+
+.glyph.winddir:before {
+	content: "\00e012"
+}
+
+.glyph.winddir.N:before {
+	content: "\00e008"
+}
+
+.glyph.winddir.NNE:before {
+	content: "\00e009"
+}
+
+.glyph.winddir.NE:before {
+	content: "\00e00a"
+}
+
+.glyph.winddir.ENE:before {
+	content: "\00e00b"
+}
+
+.glyph.winddir.E:before {
+	content: "\00e00c"
+}
+
+.glyph.winddir.ESE:before {
+	content: "\00e00d"
+}
+
+.glyph.winddir.SE:before {
+	content: "\00e00e"
+}
+
+.glyph.winddir.SSE:before {
+	content: "\00e00f"
+}
+
+.glyph.winddir.S:before {
+	content: "\00e000"
+}
+
+.glyph.winddir.SSW:before {
+	content: "\00e001"
+}
+
+.glyph.winddir.SW:before {
+	content: "\00e002"
+}
+
+.glyph.winddir.WSW:before {
+	content: "\00e003"
+}
+
+.glyph.winddir.W:before {
+	content: "\00e004"
+}
+
+.glyph.winddir.WNW:before {
+	content: "\00e005"
+}
+
+.glyph.winddir.NW:before {
+	content: "\00e006"
+}
+
+.glyph.winddir.NNW:before {
+	content: "\00e007"
+}
+
+.glyph.windspeed:before {
+	content: "\00e013"
+}
+
+.glyph.windgust:before {
+	content: "\00e014"
+}
+
+.glyph.humidity:before {
+	content: "\00e015"
+}
+
+.glyph.rain:before {
+	content: "\00e016"
+}
+
+.glyph.rain1h:before {
+	content: "\00e017"
+}
+
+.glyph.rain3h:before {
+	content: "\00e018"
+}
+
+.glyph.precipprob:before {
+	content: "\00e019"
+}
+
+.glyph.watertemp:before {
+	content: "\00e01a"
+}
+
+.glyph.waveheight:before {
+	content: "\00e01b"
+}
+
+.glyph.wavedirection:before {
+	content: "\00e01c"
+}
+
+.glyph.windwavedirection:before {
+	content: "\00e01d"
+}
+
+.glyph.pressure:before {
+	content: "\00e01e"
+}
+
+.glyph.sunshine:before {
+	content: "\00e01f"
+}
+
+.glyph.predictability:before {
+	content: "\00e020"
+}
+
+.glyph.sunrise:before {
+	content: "\00e021"
+}
+
+.glyph.sunset:before {
+	content: "\00e022"
+}
+
+.glyph.snow:before {
+	content: "\00e025"
+}
+
+.glyph.dust:before {
+	content: "\00e026"
+}
+
+.glyph.swellwaveheight:before {
+	content: "\00e028"
+}
+
+.glyph.swellwaveperiod:before {
+	content: "\00e029"
+}
+
+.glyph.windwaveheight:before {
+	content: "\00e02a"
+}
+
+.glyph.windwaveperiod:before {
+	content: "\00e02b"
+}
+
+.glyph.thunderstormprob:before {
+	content: "\00e02c"
+}
+
+.glyph.ozone:before {
+	content: "\00e02d"
+}
+
+.glyph.featcl_V:before {
+	content: "\00e032"
+}
+
+.glyph.featcl_T:before {
+	content: "\00e036"
+}
+
+.glyph.featcl_H:before {
+	content: "\00e037"
+}
+
+.glyph.featcl_S:before {
+	content: "\00e038"
+}
+
+.glyph.settings:before {
+	content: "\00e04b"
+}
+
+.glyph.language:before {
+	content: "\00e04c"
+}
+
+.glyph.search:before {
+	content: "\00e071"
+}
+
+.glyph.menu:before {
+	content: "\00e040"
+}
+
+.glyph.options:before {
+	content: "\00e04b"
+}
+
+.glyph.delete:before {
+	content: "\00e06c"
+}
+
+.glyph.close:before {
+	content: "\00e06d"
+}
+
+.glyph.edit:before {
+	content: "\00e070"
+}
+
+.glyph.hourglass:before {
+	content: "\00e072"
+}
+
+.glyph.help:before {
+	content: "\00e080"
+}
+
+.glyph.download:before {
+	content: "\00e082"
+}
+
+.glyph.upload:before {
+	content: "\00e098"
+}
+
+.glyph.bookmark:before {
+	content: "\00e085"
+}
+
+.glyph.document:before {
+	content: "\00e086"
+}
+
+.glyph.gallery:before {
+	content: "\00e095"
+}
+
+.glyph.more:before {
+	content: "\00e087"
+}
+
+.glyph.share:before {
+	content: "\00e088"
+}
+
+.glyph.params:before {
+	content: "\00e089"
+}
+
+.glyph.print:before {
+	content: "\00e08a"
+}
+
+.glyph.onoff:before {
+	content: "\00e0de"
+}
+
+.glyph.warning:before {
+	content: "\00e08d"
+}
+
+.glyph.info:before {
+	content: "\00e08e"
+}
+
+.glyph.facebook-positive:before {
+	content: "\00e0b1";
+	color: #39579a
+}
+
+.glyph.facebook:before {
+	content: "\00e0b2";
+	color: #39579a
+}
+
+.glyph.twitter-positive:before {
+	content: "\00e0b3";
+	color: #00abf0
+}
+
+.glyph.twitter:before {
+	content: "\00e0b4";
+	color: #00abf0
+}
+
+.glyph.whatsapp:before {
+	content: ""
+}
+
+.glyph.googleplus:before {
+	content: "\00e0b6";
+	color: #df4a32
+}
+
+.glyph.whatsapp:before {
+	content: "\00e0b8";
+	color: #25d366
+}
+
+.glyph.user:before {
+	content: "\00e0b9"
+}
+
+.glyph.comment:before {
+	content: "\00e0ba"
+}
+
+.glyph.user_logged_in:before {
+	content: "\00e0bd"
+}
+
+.glyph.like:before {
+	content: "\00e0bb"
+}
+
+.glyph.dislike:before {
+	content: "\00e0bc"
+}
+
+.glyph.credits:before {
+	content: "\00e090"
+}
+
+.glyph.pointplus:before {
+	content: "\00e0c7"
+}
+
+.glyph.pointplus_small:before {
+	content: "\00e0c6"
+}
+
+.glyph.meteoblue:before {
+	content: "\00e0d0"
+}
+
+.glyph.logo:before {
+	content: "\00e0d1"
+}
+
+.glyph.sun:before {
+	content: "\00e0d4"
+}
+
+.glyph.external:before {
+	content: "\00e08f"
+}
+
+.glyph.external_positive:before {
+	content: "\00e094"
+}
+
+.glyph.checkmark:before {
+	content: "\00e0d8"
+}
+
+.glyph.cross:before {
+	content: "\00e0d9"
+}
+
+.glyph.location:before {
+	content: "\00e0df"
+}
+
+.glyph.clock:before {
+	content: "\00e0e0"
+}
+
+.glyph.arrowhead_hollow_down:before {
+	content: "\00e048"
+}
+
+.glyph.arrowhead_hollow_up:before {
+	content: "\00e047"
+}
+
+.glyph.arrowhead_hollow_left:before {
+	content: "\00e049"
+}
+
+.glyph.arrowhead_hollow_right:before {
+	content: "\00e04a"
+}
+
+.glyph.forward:before {
+	content: "\00e063"
+}
+
+.glyph.backward:before {
+	content: "\00e064"
+}
+
+.glyph.fast_forward:before {
+	content: "\00e065"
+}
+
+.glyph.fast_backward:before {
+	content: "\00e066"
+}
+
+.glyph.play:before {
+	content: "\00e060"
+}
+
+.glyph.pause:before {
+	content: "\00e061"
+}
+
+.glyph.fullscreen:before {
+	content: "\00e074"
+}
+
+.glyph.fullscreen_close:before {
+	content: "\00e075"
+}
+
+.glyph.gps:before {
+	content: "\00e0e3"
+}
+
+.glyph.cloud:before {
+	content: "\00e0d6"
+}
+
+.glyph.at1:before {
+	content: "\00e110"
+}
+
+.glyph.at2:before {
+	content: "\00e111"
+}
+
+.glyph.at3:before {
+	content: "\00e112"
+}
+
+.glyph.at4:before {
+	content: "\00e113"
+}
+
+.glyph.at5:before {
+	content: "\00e114"
+}
+
+.glyph.at6:before {
+	content: "\00e115"
+}
+
+.glyph.at7:before {
+	content: "\00e116"
+}
+
+.glyph.at8:before {
+	content: "\00e117"
+}
+
+.glyph.at9:before {
+	content: "\00e118"
+}
+
+.glyph.at10:before {
+	content: "\00e119"
+}
+
+.glyph.at12:before {
+	content: "\00e11A"
+}
+
+.glyph.at13:before {
+	content: "\00e11B"
+}
+
+abbr,
+address,
+article,
+aside,
+audio,
+b,
+blockquote,
+body,
+canvas,
+caption,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+nav,
+object,
+ol,
+p,
+pre,
+q,
+samp,
+section,
+small,
+span,
+strong,
+sub,
+summary,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+ul,
+var,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline
+}
+
+body {
+	line-height: 1;
+	font-family: Open Sans, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color: #bccdda;
+	background-color: #10163A;
+	overflow-x: hidden;
+	width: 100%
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section {
+	display: block
+}
+
+nav ul {
+	list-style: none
+}
+
+blockquote,
+q {
+	quotes: none
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+	content: none
+}
+
+a {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	color: #2c7c9c;
+	background: transparent
+}
+
+ins {
+	text-decoration: none
+}
+
+ins,
+mark {
+	background-color: #f8f8f8;
+	color: #bccdda
+}
+
+mark {
+	font-style: italic;
+	font-weight: 700
+}
+
+del {
+	text-decoration: line-through
+}
+
+abbr[title],
+dfn[title] {
+	border-bottom: 1px dotted;
+	cursor: help
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #fff;
+	margin: 1em 0;
+	padding: 0
+}
+
+input,
+select {
+	vertical-align: middle
+}
+
+sup {
+	vertical-align: super
+}
+
+sub,
+sup {
+	font-size: .6em
+}
+
+sub {
+	vertical-align: sub
+}
+
+html {
+	font-size: 11pt
+}
+
+@media (max-width:450px) {
+	html {
+		font-size: 10pt
+	}
+}
+
+body {
+	background-color: #10161c;
+	font-size: .85em
+}
+
+body,
+h1,
+h2 {
+	font-weight: 300
+}
+
+h1 {
+	font-size: 1.6em;
+	line-height: 1.4
+}
+
+h2 {
+	font-size: 1.4em
+}
+
+a {
+	color: #bccdda
+}
+
+.wrapper {
+	padding: 2%;
+	margin: 0 auto;
+	min-width: 300px;
+	max-width: 500px
+}
+
+.header,
+.wrapper {
+	position: relative
+}
+
+.header {
+	overflow: hidden
+}
+
+.header h1 {
+	display: inline
+}
+
+.header .logo {
+	float: right;
+	font-size: 1.8em;
+	color: #bccdda;
+	text-decoration: none
+}
+
+main {
+	margin-top: 1em
+}
+
+.days-meta {
+	margin: .6em 0 1em;
+	line-height: 1.4;
+	border-bottom: 1px solid #bccdda
+}
+
+.day-info {
+	display: inline-block
+}
+
+.day-more {
+	float: right
+}
+
+.day-more a {
+	text-decoration: none
+}
+
+.day-weekday {
+	font-size: 1.4em
+}
+
+.day-to {
+	display: inline-block;
+	margin-left: .6em;
+	margin-right: .6em
+}
+
+.table-seeing {
+	width: 100%;
+	line-height: 1.2;
+	table-layout: fixed;
+	border-collapse: separate;
+	border-spacing: 1px
+}
+
+.table-seeing tbody {
+	position: relative
+}
+
+.table-seeing tr.new-day td {
+	border-top: 1px dashed #bccdda
+}
+
+.table-seeing td,
+.table-seeing th {
+	padding: .2em .6em;
+	text-align: right;
+	min-width: 30px
+}
+
+.table-seeing th {
+	font-size: 1.2em;
+	line-height: 1.4;
+	font-weight: 300;
+	border-right: 1px solid #bccdda;
+	vertical-align: bottom
+}
+
+@media (max-width:450px) {
+	.table-seeing th {
+		font-size: 1.1em
+	}
+}
+
+.table-seeing .header-level th {
+	border-right: none;
+	text-align: center
+}
+
+.table-seeing .header-description {
+	font-size: .6em
+}
+
+@media (max-width:500px) {
+	.table-seeing .header-description {
+		display: none
+	}
+}
+
+.table-seeing td.time {
+	font-weight: 700
+}
+
+.table-seeing td.unicolour-text {
+	color: #000
+}
+
+.table-seeing td.arcsec-best {
+	color: #000;
+	background-color: #00e452
+}
+
+.table-seeing td.arcsec-second {
+	color: #000;
+	background-color: #97ec2a
+}
+
+.table-seeing .bright-round-balls {
+	background-color: transparent;
+	position: relative
+}
+
+.table-seeing .ball-rise,
+.table-seeing .ball-set {
+	position: absolute;
+	white-space: nowrap;
+	background-color: rgba(16, 22, 28, .7)
+}
+
+.table-seeing .ball-rise {
+	top: 0
+}
+
+.table-seeing .ball-meta {
+	position: absolute;
+	top: 50%;
+	z-index: -1
+}
+
+.table-seeing .moon-icon {
+	width: 24px;
+	height: 24px
+}
+
+.table-seeing .ball-set {
+	bottom: 0
+}
+
+.table-seeing .bright-ball {
+	height: 200px;
+	position: absolute;
+	opacity: 1;
+	-webkit-transition: opacity .2s;
+	-moz-transition: opacity .2s;
+	-ms-transition: opacity .2s;
+	-o-transition: opacity .2s;
+	transition: opacity .2s
+}
+
+.table-seeing .bright-ball.invisible {
+	opacity: 0
+}
+
+.table-seeing .bright-ball.sun {
+	right: 0;
+	border-right: 5px solid #ff0
+}
+
+.table-seeing .bright-ball.sun .ball-meta,
+.table-seeing .bright-ball.sun .ball-rise,
+.table-seeing .bright-ball.sun .ball-set {
+	right: 2px
+}
+
+.table-seeing .bright-ball.sun .ball-meta {
+	color: #ff0;
+	font-size: 2em;
+	margin-top: -.75em
+}
+
+.table-seeing .bright-ball.moon {
+	left: 2px;
+	border-left: 5px solid #bccdda
+}
+
+.table-seeing .bright-ball.moon .ball-meta,
+.table-seeing .bright-ball.moon .ball-rise,
+.table-seeing .bright-ball.moon .ball-set {
+	left: 2px
+}
+
+.table-seeing .bright-ball.moon .ball-meta {
+	margin-top: -20px
+}
+
+footer {
+	margin-top: 1.2em;
+	text-align: center;
+	border-top: 1px solid #bccdda
+}
+
+footer .more {
+	display: inline-block;
+	font-size: 1.2em;
+	font-weight: 700;
+	color: #10161c;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	padding: .6em 2em;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none
+}
+
+footer .more,
+footer .more:hover {
+	background: #bccdda
+}
