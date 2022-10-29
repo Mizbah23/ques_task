@@ -24,6 +24,17 @@ class AdminController extends Controller
 
   
          /////***** Heading *****/////
+       public function answer($id)
+   {
+        $output = '';
+        $answer = Answer::find($id);
+        foreach($answer->answer as $ans)
+        {
+             
+            $output .= '<span class="badge badge-primary">'.$ans->answer.'</span>';
+        }
+        return $output;
+   }
 
     public function showHeading()
     {
@@ -157,7 +168,7 @@ class AdminController extends Controller
         foreach($posts as $r)
         {     
             $nestedData['question'] = $r->question;
-            $nestedData['answer'] = implode(",", $r->answer);
+            $nestedData['answer'] = json_decode($r->answer);
            
             $nestedData['action'] = '<a class="editmdl" data-pid="'.$r->id.'" data-pttl="'.$r->question.'" '
                     . 'data-dtl="'.$r->answer.'"  style="padding: 4px;"><i class="ficon feather icon-edit success"></i></a> ';
