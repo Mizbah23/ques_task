@@ -36,7 +36,7 @@
     <div class="modal-content">
             
     <div class="modal-header bg-info">
-        <h5 class="modal-title" id="exampleModalScrollableTitle">Service</h5>
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Questions</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -48,8 +48,8 @@
                     <div class="col-md-6 col-xl-6">
                   
                         <div class="form-group checkmail">
-                            <label for="first-name-icon">Title</label> 
-                             <input type="text" class="form-control" name="title" placeholder="Enter title">
+                            <label for="first-name-icon">Question</label> 
+                             <input type="text" class="form-control" name="question" placeholder="Please Type your question here...">
                             <div class="valid-feedback"></div><div class="invalid-feedback eitxt"></div>
                         </div>
 
@@ -59,14 +59,33 @@
                     </div> 
                      
                 </div>
+                <div id="items">
                 <div class="row">
                     <div class="col-md-12 col-xl-12">
-                         <div class="form-group">
-                        <label for="first-name-icon">Description :</label>
-                        <textarea name="details" id ="details"  cols="150" placeholder="Description"></textarea>
+                         <div class="form-group" >
+                        <label for="first-name-icon">Answer :</label>
+                        <input type="text" name="answer[]" class="form-control col-sm-4" placeholder="Please Type your answer here...">
+                        
                         </div> 
+                       
+                        
                     </div>
 
+               </div>
+
+               <div class="row">
+                 <div class="col-md-12 col-xl-12">
+                    <button type="button" class="btn-sm btn-success" id="add">
+                    <i class="feather icon-plus-circle" ></i>
+                    </button>
+                    <button type="button" class="btn-sm btn-danger" >
+                    <i class="feather icon-minus-circle"></i>
+                    </button>
+                    <input type="checkbox" name="is_correct[]" value="0"> is Correct
+                        
+                     
+                </div>
+               </div>
                </div>
       
     </div>
@@ -157,14 +176,14 @@
                         </li>
 <!--                                    <li class="breadcrumb-item"><a href="#">Components</a>
                         </li>-->
-                         <li class="breadcrumb-item active"> <span class="badge badge-primary">Service</span>
+                         <li class="breadcrumb-item active"> <span class="badge badge-primary">Question</span>
                         </li>
                         
                     </ol>
 
-                    {{-- <button type="button" class="openAdd btn-sm btn-primary waves-effect waves-light" data-toggle="modal">
-                    <i class="feather icon-plus-circle"></i> Service
-                    </button> --}}
+                    <button type="button" class="openAdd btn-sm btn-danger waves-effect waves-light" data-toggle="modal">
+                    <i class="feather icon-plus-circle"></i> ADD QUESTION
+                    </button>
                 </div>
                 <div class="card-content">
                     <div class="card-body card-dashboard" style="padding-top: 0px;">
@@ -172,10 +191,9 @@
                             <table id="userTbl" class="table zero-configuration ">
                                 <thead>
                                     <tr style="background-color: #7367F0;color:white;">
-                                        <th>Title</th>
-                                        <th>Service Details</th>                                
-                                        <th>Created</th>
-                                        <th>Created Date</th>
+                                        <th>Question</th>
+                                        <th>Answer</th>                                
+                                   
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -215,31 +233,32 @@
 //    $("#day_id").select2({
 //    maximumSelectionLength: 1
 //});
-CKEDITOR.replace('details');
-CKEDITOR.replace('udetails');
-    // $(document).ready(function()
-    // {
-    //    $('.nw').addClass('active');
-    //    countslot();
+// CKEDITOR.replace('details');
+// CKEDITOR.replace('udetails');
+    $(document).ready(function()
+    {
+       $("#add").click(function (e) {
+
+$("#items").append(' <div>  <input type="text" name="answer[]" class="form-control col-sm-4" placeholder="Please Type your answer here..."><input type="checkbox" name="is_correct[]" value="0"> is Correct   <button type="button" class="btn-sm btn-danger remove"> <i class="feather icon-minus-circle"></i></button></div>'); });
+$(document).on("click", ".remove", function (e) {
+   $(this).parent("div").remove();
+
+
+
+});
        
-    // });
-    // $(function () {
-    //     $('.timepicker').timepicker({
-    //      showInputs: false
-    //    });
-    //  });
+    });
+
     var table = $('#userTbl').DataTable(
     {
         "responsive" : true,"autoWidth"  : false,
         "processing" : true,"serverSide": true,
-        "ajax":{"url":"{{route('list.service')}}","dataType":"json",
+        "ajax":{"url":"{{route('list.question')}}","dataType":"json",
             "type":"POST","data": function ( d )
             {d._token= $('meta[name="csrf-token"]').attr('content');}},
         "columns":[
-        {"data":"title"},
-        {"data":"details"},
-        {"data":"created_by"},
-        {"data":"created_at"},
+        {"data":"question"},
+        {"data":"answer"},
         {"data":"action","searchable":false,"orderable":false}
     ],
         "order": [[1, 'desc']]   
@@ -261,10 +280,10 @@ $("#addFrm").on('submit',function(event)
     event.preventDefault();
     $('.addbtn').addClass('spinner-border spinner-border-sm');
     var formData = new FormData(this);
-    formData.append('details', CKEDITOR.instances['details'].getData());
+    // formData.append('details', CKEDITOR.instances['details'].getData());
     $.ajax({
         type: 'POST',
-        url: "{{route('save.service')}}",
+        url: "{{route('save.question')}}",
         data:formData,
         dataType:'JSON',
         contentType: false,
@@ -302,7 +321,7 @@ $("#upFrm").on('submit',function(event)
     var formData = new FormData(this);
     formData.append('udetails', CKEDITOR.instances['udetails'].getData());
     $.ajax({type: 'POST',
-        url: "{{route('update.service')}}",data:formData,
+        url: "{{route('update.heading')}}",data:formData,
         dataType:'JSON',contentType: false,
         cache: false,processData: false,
         success:function(data)

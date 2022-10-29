@@ -36,6 +36,16 @@ Route::group(['prefix' => 'admin','middleware' => ['auth:web']], function ()
          // Route::post('/del', array('as' => 'del.about','uses' => 'AdminController@delAbouts'));
     });
 
+        Route::group(['prefix' => 'questions'], function ()
+    {
+        Route::get('/', array('as' => 'questions','uses' => 'AdminController@showQuestion'));
+        Route::post('/list', array('as' => 'list.question','uses' => 'AdminController@listQuestion'));
+        Route::post('/save', array('as' => 'save.question','uses' => 'AdminController@saveQuestion'));
+        Route::post('/update', array('as' => 'update.question','uses' => 'AdminController@updateQuestion'));
+        // Route::post('/sts', array('as' => 'sts.','uses' => 'CategoryController@statusCategory'));
+         // Route::post('/del', array('as' => 'del.about','uses' => 'AdminController@delAbouts'));
+    });
+
     //     Route::group(['prefix' => 'duties'], function ()
     // {
     //     Route::get('/', array('as' => 'duties','uses' => 'AdminController@showDuty'));

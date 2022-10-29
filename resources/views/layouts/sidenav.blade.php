@@ -45,8 +45,8 @@
                     </a>
                 </li> --}}
 
-                <li class=" nav-item {{(Route::currentRouteName()=='headings')?'active':''}}">
-                    <a href="{{route('headings')}}">
+                <li class=" nav-item {{(Route::currentRouteName()=='questions')?'active':''}}">
+                    <a href="{{route('questions')}}">
                         <i class="feather icon-edit-2"></i><span class="menu-title" data-i18n="Email">Question</span>
                     </a>
                 </li>
