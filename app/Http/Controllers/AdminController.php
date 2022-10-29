@@ -135,7 +135,7 @@ class AdminController extends Controller
             $posts = Question::leftJoin('answers','answers.question_id','=','questions.id')
                     ->select('questions.question','answers.answer')     
                     ->offset($start)->limit($limit)->orderBy($order,$dir)->get();
-                    $totalFiltered = Heading::count();
+                    $totalFiltered = Question::count();
         }
         else{
             $search = $request->input('search.value');
@@ -157,7 +157,7 @@ class AdminController extends Controller
         foreach($posts as $r)
         {     
             $nestedData['question'] = $r->question;
-            $nestedData['answer'] = $r->answer;
+            $nestedData['answer'] = implode(",", $r->answer);
            
             $nestedData['action'] = '<a class="editmdl" data-pid="'.$r->id.'" data-pttl="'.$r->question.'" '
                     . 'data-dtl="'.$r->answer.'"  style="padding: 4px;"><i class="ficon feather icon-edit success"></i></a> ';
@@ -181,13 +181,13 @@ class AdminController extends Controller
         $events->question = $request->question;
         $events->save();
         //dd($events);
-        foreach ($request->answer as $ans) {
+    
         $answer = new Answer;
-        $answer->answer=$ans;
+        $answer->answer=json_encode($request->answer);
         $answer->question_id=$events['id'];
         $answer->is_correct=0;
         $answer->save();
-        }
+        
      
         
 
