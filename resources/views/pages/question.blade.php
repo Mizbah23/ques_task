@@ -116,13 +116,13 @@
     <div class="modal-body" style="padding-top: 23px;">
         <form method="post"  id="upFrm" enctype="multipart/form-data"> 
             <input type="hidden" name="id" id="id">
-            <input type="hidden" name="oldimg" id="oldimg">
+         
                 <div class="row">
                     <div class="col-md-6 col-xl-6">
                   
                         <div class="form-group checkmail">
-                            <label for="first-name-icon">Title</label> 
-                             <input type="text" class="form-control" name="utitle" id="utitle"  placeholder="Enter news Title">
+                            <label for="first-name-icon">Question</label> 
+                             <input type="text" class="form-control" name="utitle" id="utitle"  placeholder="Enter question">
                             <div class="valid-feedback"></div><div class="invalid-feedback eitxt"></div>
                         </div>
                         
@@ -135,9 +135,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-xl-12">
-                         <div class="form-group">
-                        <label for="first-name-icon">Description :</label>
-                        <textarea name="udetails" id ="udetails"   placeholder="Description"></textarea>
+                         <div class="form-group" >
+                        <label for="first-name-icon">Answer :</label>
+                        <input type="text" name="uanswer[]" class="form-control col-sm-4" placeholder="Please Type your answer here..." id="udetails">
+                        
                         </div> 
                     </div>
 
@@ -307,11 +308,7 @@ $(document).on('click', '.editmdl', function()
     document.getElementById("upFrm").reset();
     $('#id').val($(this).data('pid'));
     $('#utitle').val($(this).data('pttl'));
-    $('#usubtitle').val($(this).data('plink'));
     $('#udetails').val($(this).data('dtl'));
-    CKEDITOR.instances['udetails'].setData($(this).data('dtl'));
-    $('#oldimg').val($(this).data('pimg'));
-    $('.oldimg').attr('src',$(this).data('pimg'));
     $('.upMdl').modal('show');
 }); 
 $("#upFrm").on('submit',function(event)
