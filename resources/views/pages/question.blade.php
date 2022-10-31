@@ -159,6 +159,31 @@
 
 <!-- *****************************delete model**********************************-->
 
+<div class="modal fade delMdl" id="animation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel6" aria-modal="true">
+    <div class="modal-dialog modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            
+        <div class="modal-header bg-primary">
+            <h5 class="modal-title" id="exampleModalScrollableTitle">Delete Question</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <input type="hidden" value="" id="did">                                        
+        <div class="modal-body">
+            Are You Sure You want to delete- <span class="ttl" style="color:red;"></span>?
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="delCategory" class="btn btn-outline-danger  waves-effect waves-light">
+                Delete <span class="delbtn" role="status" aria-hidden="true"></span>
+            </button>
+        </div>
+            </div>
+        </div>
+</div>
+
+<!-- *****************************end delete model**********************************-->
+
 
 
 
@@ -332,18 +357,18 @@ $("#upFrm").on('submit',function(event)
     });
     
 });
-$(document).on('click', '.csts', function()
-{
-    $.ajax({
-      type: 'POST',url: "",
-      data: {
-        _token: $('meta[name="csrf-token"]').attr('content'),
-        id: $(this).data('id'),sts: $(this).data('sts')},
-      success: function(data){
-      table.ajax.reload( null, false );
-      toastr[data.type](data.message);}
-    });
-});
+// $(document).on('click', '.csts', function()
+// {
+//     $.ajax({
+//       type: 'POST',url: "",
+//       data: {
+//         _token: $('meta[name="csrf-token"]').attr('content'),
+//         id: $(this).data('id'),sts: $(this).data('sts')},
+//       success: function(data){
+//       table.ajax.reload( null, false );
+//       toastr[data.type](data.message);}
+//     });
+// });
 $(document).on('click', '.delmdl', function()
 {
     $('.delbtn').removeClass('spinner-border spinner-border-sm');
@@ -357,10 +382,10 @@ $("#delCategory").on('click',function(event)
     $('.delbtn').addClass('spinner-border spinner-border-sm');
     $.ajax({
       type: 'POST',
-      url: "",
+      url: "{{ route('del.question') }}",
       data: {
         _token: $('meta[name="csrf-token"]').attr('content'),
-        did: $('#did').val()
+        did: $('#did').val(),
       },
       success: function(data){
          table.ajax.reload( null, false );

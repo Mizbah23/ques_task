@@ -24,17 +24,17 @@ class AdminController extends Controller
 
   
          /////***** Heading *****/////
-       public function answer($id)
-   {
-        $output = '';
-        $answer = Answer::find($id);
-        foreach($answer->answer as $ans)
-        {
+   //     public function answer($id)
+   // {
+   //      $output = '';
+   //      $answer = Answer::find($id);
+   //      foreach($answer->answer as $ans)
+   //      {
              
-            $output .= '<span class="badge badge-primary">'.$ans->answer.'</span>';
-        }
-        return $output;
-   }
+   //          $output .= '<span class="badge badge-primary">'.$ans->answer.'</span>';
+   //      }
+   //      return $output;
+   // }
 
     public function showHeading()
     {
@@ -82,8 +82,7 @@ class AdminController extends Controller
             $nestedData['created_by'] = $r->uname;
       
             $nestedData['created_at']=date('m/d/Y', strtotime($r->created_at));
-            $nestedData['action'] = '<a class="editmdl" data-pid="'.$r->id.'" data-pttl="'.$r->title.'" '
-                    . 'data-dtl="'.$r->details.'"  style="padding: 4px;"><i class="ficon feather icon-edit success"></i></a> ';
+            $nestedData['action'] = '<a class="editmdl" data-pid="'.$r->id.'" data-pttl="'.$r->title.'" '. 'data-dtl="'.$r->details.'"  style="padding: 4px;"><i class="ficon feather icon-edit success"></i></a> ' ;
             $data[] = $nestedData;
         }
     }     
@@ -144,20 +143,20 @@ class AdminController extends Controller
         if(empty($request->input('search.value')))
         {
             $posts = Question::leftJoin('answers','answers.question_id','=','questions.id')
-                    ->select('questions.question','answers.answer')     
+                    ->select('questions.*','answers.answer')     
                     ->offset($start)->limit($limit)->orderBy($order,$dir)->get();
                     $totalFiltered = Question::count();
         }
         else{
             $search = $request->input('search.value');
             $posts = Question::leftJoin('answers','answers.question_id','=','questions.id')
-                    ->select('questions.question','answers.answer')  
+                    ->select('questions.*','answers.answer')  
                     ->where('question', 'like', "%{$search}%")
                     ->orwhere('answer', 'like', "%{$search}%")
                     ->offset($start)->limit($limit)
                     ->orderBy($order, $dir)->get();
             $totalFiltered = Question::leftJoin('answers','answers.question_id','=','questions.id')
-                    ->select('questions.question','answers.answer')  
+                    ->select('questions.*','answers.answer')  
                     ->where('question', 'like', "%{$search}%")
                     ->orwhere('answer', 'like', "%{$search}%")
                     ->count();
@@ -167,11 +166,13 @@ class AdminController extends Controller
     if($posts){
         foreach($posts as $r)
         {     
+            // dd($r);
             $nestedData['question'] = $r->question;
             $nestedData['answer'] = json_decode($r->answer);
            
             $nestedData['action'] = '<a class="editmdl" data-pid="'.$r->id.'" data-pttl="'.$r->question.'" '
-                    . 'data-dtl="'.$r->answer.'"  style="padding: 4px;"><i class="ficon feather icon-edit success"></i></a> ';
+                    . 'data-dtl="'.$r->answer.'"  style="padding: 4px;"><i class="ficon feather icon-edit success"></i></a> '. 
+                    '<a href="#" class="delmdl" data-did="'.$r->id.'" data-ttl="'.$r->question.'" style="padding: 4px;"><i class="ficon feather icon-trash-2 danger"></i></a>';
             $data[] = $nestedData;
         }
     }     
@@ -210,6 +211,18 @@ class AdminController extends Controller
                 'type' => 'success'
         );
         return Response::json($notification); 
+    }
+
+         public function delQuestion(Request $request)
+    { 
+        // dd($request->all());
+        $ques = Question::find($request->did);
+        $ques->delete();
+        $notification = array(
+                 'message' => 'Question Deleted Successfully',
+                 'type' => 'error'
+             );       
+        return Response::json($notification);
     }
 
     // public function updateHeading(Request $request)
